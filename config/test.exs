@@ -17,7 +17,7 @@ config :bank_bill_dda, BankBillDda.Repo,
 # you can enable the server option below.
 config :bank_bill_dda, BankBillDdaWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "5DWP4TOpcU6s96vgcL1EUReq5lA+RpTIk52EgNdk/sHH5M+6iRDP3S5BYIXCyC+4",
+  secret_key_base: "2ho4P8lyWS73SpeYSmHkZQ4ZO2zHbGsA88oc/0K/SpxuJ326ClRtKPL5LgoJ2QX1",
   server: false
 
 # Print only warnings and errors during test

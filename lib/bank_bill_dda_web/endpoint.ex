@@ -7,7 +7,7 @@ defmodule BankBillDdaWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_bank_bill_dda_key",
-    signing_salt: "43a53prV"
+    signing_salt: "h/wotl6C"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
@@ -25,6 +25,8 @@ defmodule BankBillDdaWeb.Endpoint do
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
+    socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
+    plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
     plug Phoenix.Ecto.CheckRepoStatus, otp_app: :bank_bill_dda
   end

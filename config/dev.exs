@@ -22,8 +22,11 @@ config :bank_bill_dda, BankBillDdaWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "b/jbT6opbpeEj5BPCNUPd0P8Bbj8/v/fHy9jV2EEZmnHwvupdGGUav5580XWRiat",
-  watchers: []
+  secret_key_base: "FtYp1m5QzzvZT7hcH1OA+cMvjQlB0phWntQHmQQmMv92mrnW3jmQ06DCSwNPhpPm",
+  watchers: [
+    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+  ]
 
 # ## SSL Support
 #
@@ -48,6 +51,16 @@ config :bank_bill_dda, BankBillDdaWeb.Endpoint,
 # If desired, both `http:` and `https:` keys can be
 # configured to run both http and https servers on
 # different ports.
+
+# Watch static and templates for browser reloading.
+config :bank_bill_dda, BankBillDdaWeb.Endpoint,
+  live_reload: [
+    patterns: [
+      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"lib/bank_bill_dda_web/(live|views)/.*(ex)$",
+      ~r"lib/bank_bill_dda_web/templates/.*(eex)$"
+    ]
+  ]
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
